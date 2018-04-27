@@ -13,9 +13,14 @@ import './style.less'
 class CreatOrder extends React.Component {
 
   handleChengeValue = (type) => (event) => {
-
 		const { setFieldValue } = this.props;
-		setFieldValue(type, event.target.value);
+    
+    if (type === 'dateExecution') {
+
+      return setFieldValue(type, event);
+    }
+
+    setFieldValue(type, event.target.value);
 	}
 
   render() {
@@ -52,7 +57,14 @@ class CreatOrder extends React.Component {
           
           <FormGroup>
             <ControlLabel>Дата ожидания заказа:</ControlLabel>
-            <ReactDatepicker onChange={(date)=>console.log(date._d)}/>
+            <ReactDatepicker 
+              className='new-input'
+              selected={values.dateExecution} 
+              onChange={this.handleChengeValue('dateExecution')}
+              dateFormat='lll'
+              locale="ru"
+              readOnly
+            />
           </FormGroup>
           
           <Button 
@@ -73,8 +85,7 @@ const FormikCreatOrder = withFormik({
     return {
       orderName: orderName || '',
       dateCreate: moment().locale('ru').format('lll'),
-      dateExecution: dateExecution || ''
-
+      dateExecution: dateExecution || moment()
     }
 	},
 	
