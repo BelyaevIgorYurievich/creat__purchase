@@ -47,7 +47,9 @@ module.exports = {
       alias: {
         PersonalCard: path.resolve(__dirname, 'source/personal_card'),
         DealCard: path.resolve(__dirname, 'source/deal_card'),
-        RadioButton: path.resolve(__dirname, 'source/radio_button')
+        RadioButton: path.resolve(__dirname, 'source/radio_button'),
+        MyOrders: path.resolve(__dirname, 'source/my_orders'),
+        CreatOrder: path.resolve(__dirname, 'source/creat_order')
       },
   },
   module: {
@@ -58,15 +60,22 @@ module.exports = {
           'babel-loader'
         ],
         exclude: /node_modules/
+      }, 
+      {
+        test: /\.less?$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'less-loader'
+        ]
+      },
+      {
+          test: /\.css?$/,
+          use: [
+              'style-loader',
+              'css-loader'
+          ]
       }
-      , {
-                test: /\.less?$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'less-loader'
-                ]
-            }
     ]
   },
 
