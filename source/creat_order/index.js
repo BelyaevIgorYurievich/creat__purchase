@@ -16,11 +16,17 @@ import {
 import moment from 'moment'
 import ReactDatepicker from 'react-datepicker';
 
+import OrderItem from './order-item';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 import './style.less'
 
 class CreatOrder extends React.Component {
+
+  state = {
+    isOrderСard: false
+  }
 
   handleChengeValue = (type) => (event) => {
 		const { setFieldValue } = this.props;
@@ -43,6 +49,10 @@ class CreatOrder extends React.Component {
     setFieldValue('orderList', newOrderList);
   }
 
+  orderСardClose = () => this.setState({isOrderСard: false})
+
+  orderСardOpen = () => this.setState({isOrderСard: true})
+
   render() {
 
     const { 
@@ -52,9 +62,16 @@ class CreatOrder extends React.Component {
   		isSubmitting,
 			handleSubmit
     } = this.props
+
+    const {
+      isOrderСard
+    } = this.state
     
     return (
        <div className='creat-order'>
+        {
+         isOrderСard && <OrderItem close={this.orderСardClose}/>
+        }
         <div className='creat-order__name'>Создание заказа</div>
         	<FormGroup validationState={touched.orderName && errors.orderName ? 'error' : null}>
             <ControlLabel>Название заказа</ControlLabel>
@@ -104,7 +121,6 @@ class CreatOrder extends React.Component {
             {
               !values.orderList.length && <ListGroupItem disabled>Список пуст</ListGroupItem>
             }
-
             {
               values.orderList.map(({id, orderName}, index) => {
                 return <ListGroupItem key={id}>{orderName}
@@ -122,6 +138,7 @@ class CreatOrder extends React.Component {
             <Button 
               bsStyle='success' 
               block
+              onClick={this.orderСardOpen}
 						>Добавление продукта в заказ
             </Button>
           </ListGroup> 
