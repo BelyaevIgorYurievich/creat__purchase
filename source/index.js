@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import store from './store';
+import store from 'Store';
 import App from './App.js';
 
 const rootEl = document.getElementById('root');

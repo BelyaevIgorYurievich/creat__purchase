@@ -6,15 +6,13 @@ const initialState = {
         name:'Заказ рыбы',
         dateCreate: '20.10.2018',
         userName: 'Иван Петров',
-        dateExecution: '22.10.2018',
-        label: 'Скрочно' 
+        status: 'на соглосовании'
       },{
         id:'12',
         name:'Заказ рыбы',
         dateCreate: '20.10.2018',
         userName: 'Иван Петров',
-        dateExecution: '22.10.2018',
-        label: 'Скрочно' 
+        status: 'В работе'
     }
   ]
 };

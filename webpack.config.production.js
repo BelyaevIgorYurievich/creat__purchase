@@ -46,8 +46,9 @@ module.exports = {
     resolve: {
       alias: {
         RadioButton: path.resolve(__dirname, 'source/radio_button'),
-        OrdersList: path.resolve(__dirname, 'source/orders_list'),
-        CreatOrder: path.resolve(__dirname, 'source/creat_order')
+        ItemList: path.resolve(__dirname, 'source/item_list'),
+        CreatOrder: path.resolve(__dirname, 'source/creat_order'),
+        Store: path.resolve(__dirname, 'source/store')
       },
   },
   module: {
