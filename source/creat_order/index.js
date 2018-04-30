@@ -15,7 +15,7 @@ import {
 import moment from 'moment'
 import ReactDatepicker from 'react-datepicker';
 
-import OrderItem from './order-item';
+import OrderItem from './order_create_modal';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
