@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Label } from 'react-bootstrap'
 
-import './order.less'
+import './style.less'
 
 export default class Order extends React.PureComponent {
 

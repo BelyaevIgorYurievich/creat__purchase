@@ -19,7 +19,7 @@ const initialState = {
   ]
 };
 
-export default function table(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
 
     default:

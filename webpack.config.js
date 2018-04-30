@@ -20,10 +20,8 @@ module.exports = {
 	},
     resolve: {
         alias: {
-          PersonalCard: path.resolve(__dirname, 'source/personal_card'),
-          DealCard: path.resolve(__dirname, 'source/deal_card'),
           RadioButton: path.resolve(__dirname, 'source/radio_button'),
-          MyOrders: path.resolve(__dirname, 'source/my_orders'),
+          OrdersList: path.resolve(__dirname, 'source/orders_list'),
           CreatOrder: path.resolve(__dirname, 'source/creat_order')
         },
     },

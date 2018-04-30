@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import myOrders from 'MyOrders/reducer';
+import ordersList from 'OrdersList/reducer';
 
 export default combineReducers({
-    myOrders
+    ordersList
 });

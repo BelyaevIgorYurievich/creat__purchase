@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tab, Row, Nav, NavItem, Col } from 'react-bootstrap'
 
-import MyOrders from 'MyOrders'
+import OrdersList from 'OrdersList'
 import CreatOrder from 'CreatOrder'
 
 import './style.less'
@@ -22,7 +22,7 @@ export default class App extends React.Component {
           <Col sm={10}>
             <Tab.Content animation>
               <Tab.Pane eventKey="my_order">
-                <MyOrders/>
+                <OrdersList/>
               </Tab.Pane>
               <Tab.Pane eventKey="creat_order">
                 <CreatOrder/>

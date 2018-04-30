@@ -1,14 +1,14 @@
 import React from 'react'
-import { Row,Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types'
 
-import Order from './Order'
+import Order from './order'
 
 import './style.less'
 
-class MyOrders extends React.Component {
+class OrdersList extends React.Component {
 
   render() {
 
@@ -31,16 +31,16 @@ class MyOrders extends React.Component {
   }
 }   
 
-MyOrders.defaultProps = {
+OrdersList.defaultProps = {
   orders: []
 }
 
-MyOrders.PropTypes = {
+OrdersList.PropTypes = {
   orders: PropTypes.array
 }
 
 export default connect(
   (store) => ({
-    orders: store.myOrders.orders
+    orders: store.ordersList.orders
   })
-)(MyOrders);
+)(OrdersList);
