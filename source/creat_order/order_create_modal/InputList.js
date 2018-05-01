@@ -8,15 +8,18 @@ import { orderData } from './data';
 export default class InputList extends React.PureComponent {
 
     state = {
-        isItemOpen: true
+        isItemOpen: false
     }
 
     handleItemOpen = () => this.setState({isItemOpen: !this.state.isItemOpen})
 
+    hend = (arrId) => () => console.log(arrId,' arrId');
+
     render() {
         
         const { item } = this.props;
-        const { isItemOpen } = this.state
+        const { isItemOpen } = this.state;
+        const arrId = this.props.arrId ? [...this.props.arrId, item.id] : [item.id];
 
         return (
             <div>
@@ -28,7 +31,9 @@ export default class InputList extends React.PureComponent {
                 </div>
                 
                 {
-                    item.children ? item.children.map(item=> isItemOpen && <InputList item={item}/>) : <input/>
+                    item.children ? 
+                    item.children.map(item=> isItemOpen && <InputList arrId={arrId} item={item}/>) : 
+                    <input onChange={this.hend(arrId)}/>
                 }
             </div>
         )
