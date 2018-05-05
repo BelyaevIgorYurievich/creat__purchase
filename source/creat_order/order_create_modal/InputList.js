@@ -1,7 +1,4 @@
 import React from 'react';
-import { withFormik, Form, Field } from 'formik';
-import Yup from 'yup';
-import { Button, Modal, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 import { orderData } from './data';
 
