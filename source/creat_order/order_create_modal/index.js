@@ -4,7 +4,7 @@ import Yup from 'yup';
 import { Button, Modal, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 import { orderData } from './data';
-import InputList from './InputList';
+import InputList from './input_list';
 
 import './style.less'
 

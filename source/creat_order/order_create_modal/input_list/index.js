@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { orderData } from './data';
+import './style.less'
 
 export default class InputList extends React.PureComponent {
 
     state = {
-        isItemOpen: false,
+        isItemOpen:true,
         value: this.props.item.value || ''
     }
 
@@ -23,10 +23,11 @@ export default class InputList extends React.PureComponent {
         const arrId = this.props.arrId ? [...this.props.arrId, item.id] : [item.id];
 
         return (
-            <div>
+            <div className={item.children ? 'order_item_wrapper' : 'order_input_wrapper'}>
                 <div 
                     onClick={this.handleItemOpen} 
                     style={{marginLeft:`${item.levl*20}px`}}
+                    className='label'
                 >
                     {item.title}
                 </div>
