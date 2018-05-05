@@ -18,14 +18,16 @@ export const orderData = [
                         id: v4(),
                         children: null,
                         levl: 2,
-                        unit: 'шт'
+                        unit: 'шт',
+                        value: null
                     },
                     {
                         title: 'Баранина гуляш',
                         id: v4(),
                         children: null,
                         levl: 2,
-                        unit: 'кг'
+                        unit: 'кг',
+                        value: null
                     }
                 ]
             },
@@ -40,14 +42,16 @@ export const orderData = [
                         id: v4(),
                         children: null,
                         levl: 2,
-                        unit: 'кг'
+                        unit: 'кг',
+                        value: null
                     },
                     {
                         title: 'Грудинка',
                         id: v4(),
                         children: null,
                         levl: 2,
-                        unit: 'кг'
+                        unit: 'кг',
+                        value: null
                     }
                 ]
             },
@@ -62,14 +66,16 @@ export const orderData = [
                         id: v4(),
                         children: null,
                         levl: 2,
-                        unit: 'кг'
+                        unit: 'кг',
+                        value: null
                     },
                     {
                         title: 'Ножки',
                         id: v4(),
                         children: null,
                         levl: 2,
-                        unit: 'кг'
+                        unit: 'кг',
+                        value: null
                     }
                 ]
             }
@@ -92,7 +98,8 @@ export const orderData = [
                         id: v4(),
                         children: null,
                         levl: 2,
-                        unit: 'кг'
+                        unit: 'кг',
+                        value: null
                     }
                 ]
             },
@@ -107,7 +114,8 @@ export const orderData = [
                         id: v4(),   
                         unit: 'кг',
                         levl:2,
-                        children:null
+                        children: null,
+                        value: null
                     }
                 ]
             }

@@ -14,23 +14,39 @@ export default class OrderCreateModal extends React.PureComponent {
         orderData: []
     }
 
-    handleChengeValue = (type) => (event) => {
-        const { setFieldValue } = this.props;
-        
-		setFieldValue(type, event.target.value);
-    }
-    
-    handleChengeValueWithEvent = (type, nexType) => (event) => {
-        const { setFieldValue } = this.props;
-        
-        // setFieldValue(nexType, getData(nexType, event.target.value) )
-		setFieldValue(type, event.target.value);
-	}
+    nextOrderData = [];
 
     componentDidMount() {
         this.setState({orderData});
 
-		// setFieldValue('ordersTypes', getData('ordersTypes'));
+        this.nextOrderData = orderData;
+    }
+
+    chengeOrderTree = (nextOrderData) => (arrId, value) => {
+        
+        let _nextOrderData = [...nextOrderData];
+
+        arrId.forEach((item) => {
+
+            const newArr = _nextOrderData.filter(({id}) => {
+                return item === id
+            })
+
+            const newNode = newArr[0]
+
+            if (newNode.children) {
+                _nextOrderData = newNode.children;
+            } else {
+                _nextOrderData = newNode;
+            }
+        })
+
+        _nextOrderData.value = value;
+    }
+
+        handleSaveModal = () => {
+            this.setState({orderData: this.nextOrderData});
+            this.props.close();
     }
 
     render() { 
@@ -51,13 +67,19 @@ export default class OrderCreateModal extends React.PureComponent {
                         </Modal.Header>
                         <Modal.Body>
                             {
-                                orderData.map((item)=><InputList key={item.id} item={item}/>)
+                                orderData.map((item) => { 
+                                    return <InputList 
+                                    key={item.id} 
+                                    item={item}
+                                    chengeOrderTree={this.chengeOrderTree(this.nextOrderData)}
+                                    />
+                                })
                             }
                         </Modal.Body>
                     <Modal.Footer>
                         <Button 
                             bsStyle='primary'  
-                            onClick={null}
+                            onClick={this.handleSaveModal}
                         >Сохраить</Button>
                         <Button onClick={close}>Отмена</Button>
                     </Modal.Footer>
@@ -66,24 +88,3 @@ export default class OrderCreateModal extends React.PureComponent {
         )
     }
 }   
-
-// const FormikOrderItem = withFormik({ 
-//     mapPropsToValues({ ordersTypes, ordersType, ordersVariation, ordersNumber }) {
-//       return {
-//         ordersTypes: ordersTypes || [],
-//         ordersType: ordersType || '',
-//         ordersVariations: ordersVariation || [],
-//         ordersVariation: ordersVariation || '',
-//         ordersNumber: ordersNumber || 0
-//       }
-//     },
-//     validationSchema: Yup.object().shape({
-
-//     }),
-//     handleSubmit(values, { setSubmitting, resetForm }) {
-//       setSubmitting(false);
-//           console.log( values,' values ' ); 
-//     }
-//   })(OrderItem)
-  
-//   export default FormikOrderItem

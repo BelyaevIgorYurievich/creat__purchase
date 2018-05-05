@@ -8,17 +8,21 @@ import { orderData } from './data';
 export default class InputList extends React.PureComponent {
 
     state = {
-        isItemOpen: false
+        isItemOpen: false,
+        value: this.props.item.value || ''
     }
 
     handleItemOpen = () => this.setState({isItemOpen: !this.state.isItemOpen})
 
-    hend = (arrId) => () => console.log(arrId,' arrId');
+    handleChengeOrderTree = (arrId) => (event) => {
+        this.props.chengeOrderTree(arrId, event.target.value)
+        this.setState({value: event.target.value})
+    }
 
     render() {
         
-        const { item } = this.props;
-        const { isItemOpen } = this.state;
+        const { item, chengeOrderTree } = this.props;
+        const { isItemOpen, value } = this.state;
         const arrId = this.props.arrId ? [...this.props.arrId, item.id] : [item.id];
 
         return (
@@ -32,8 +36,12 @@ export default class InputList extends React.PureComponent {
                 
                 {
                     item.children ? 
-                    item.children.map(item=> isItemOpen && <InputList arrId={arrId} item={item}/>) : 
-                    <input onChange={this.hend(arrId)}/>
+                    item.children.map(item=> isItemOpen && <InputList 
+                        key={item.id}
+                        arrId={arrId}
+                        item={item}
+                        chengeOrderTree={chengeOrderTree}/>) : 
+                    <input value={value} onChange={this.handleChengeOrderTree(arrId)}/>
                 }
             </div>
         )
